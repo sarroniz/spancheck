@@ -38,3 +38,5 @@ or:
 ```
 $ python3 stats.py
 ```
+
+Note: For the stats tool, you can import your own glossary. You just need to replace the current lexicon in "~/lists/VOCABULARY.txt" with one of your own. 
