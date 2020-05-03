@@ -1,6 +1,6 @@
 # spancheck
 
-A spelling and grammar checker for students and instructors of Spanish.
+A spelling and grammar checker for students and instructors of L2 Spanish.
 
 ## Instructions:
 
