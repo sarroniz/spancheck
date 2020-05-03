@@ -2,7 +2,7 @@
 
 A spelling and grammar checker for students and instructors of Spanish.
 
-## Instructions:
+## Instructions:
 
 This project compiles three different tools that can process compositions in L2 Spanish and help students and instructors to get instant feedback about the text. To run each of them, follow this steps:
 
