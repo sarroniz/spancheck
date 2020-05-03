@@ -1,2 +1,2 @@
 # spancheck
-A spelling and grammar checker for instructors of Spanish
+A spelling and grammar checker for students and instructors of Spanish.
