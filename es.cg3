@@ -1,0 +1,85 @@
+DELIMITERS = "." ;
+
+LIST ALL = ADJ ADP ADV AUX CCONJ DET INTJ NOUN NUM PART PRON PROPN PUNCT SCONJ SYM VERB X ;
+LIST DET = DET ;
+LIST PUNCT = PUNCT ;
+LIST ADJ = ADJ ;
+LIST NOUN = NOUN ;
+LIST ADP = ADP ;
+LIST NOM = NOUN DET PRON ;
+LIST ADV = ADV ;
+LIST PRON = PRON ;
+LIST CONJ = CCONJ ;
+LIST VERB = VERB ;
+LIST AUX = AUX ;
+LIST ADP = ADP ;
+LIST CCONJ = CCONJ ;
+LIST ADPde = "<de>" ;
+
+SET COORD = ("igual") OR ("mas") OR ("menos") OR ("mientras") OR ("mismo") ;
+
+
+SECTION
+
+# Remove the determiner if the token is followed by the delimiter.
+REMOVE DET IF (1C PUNCT) ;
+
+# Remove the noun reading if the token is followed by another noun.
+REMOVE NOUN IF (1C NOUN) ;
+
+# In a prepositional phrase, remove everything except "ADP" if the following token is "n" or "adj".
+REMOVE ALL - ADP IF (1C NOM) ;
+
+# If "más" is followed by an ADJ, select ADV
+"<más>" SELECT (ADV) (1C ADJ) ;
+
+# Remove pronoun and select DET if the following token is a noun.
+SELECT DET IF (1 NOUN OR (ADJ)) ;
+
+# Select NOUN if the previous is a DET and the following is the prep. "de" (for possessives)
+SELECT NOUN IF (1* ADPde) (-1* DET) ;
+
+# "no" takes Adverb if followed by a verbs
+"<no>" SELECT (ADV) (1C VERB) ;
+
+# If "que" is preceded by a NOUN OR ADJECTIVE, select PRON
+"<que>" SELECT (PRON) (-1C NOUN OR (ADJ)) ;
+
+# If two verbs are together, select Auxiliary reading.
+REMOVE ALL - AUX IF (1C VERB) ;
+
+# Remove everything except Verb if the following token is a Noun or and Adverb
+REMOVE ALL - VERB IF (1C NOM OR (ADV)) ;
+
+# Select Pronoun if there is no Noun
+SELECT PRON IF (NOT 1* NOUN) ;
+
+# Remove everything except Noun if the following is a Verb
+REMOVE ALL - NOUN IF (1C VERB) ;
+
+# IF there is an Adjective or a Preposition (included in "ADP"), select VERB.
+SELECT VERB IF (1 ADJ OR (ADP)) (NOT -1* DET) ;
+
+# Select Adv if the following is a noun or pronoun
+SELECT ADV IF (1 NOUN OR (PRON)) ;
+
+# Select PRON if the following is a Verb ;
+SELECT PRON IF (1C VERB) ;
+
+# Select ADP (Preposition) if the following is a Noun or a Det or a Pronoun or a Proper Name
+SELECT ADP IF (1C NOM OR (PROPN)) ;
+
+# Select Noun if followed by a Preposition (ADP) or ADJ or Verb
+SELECT NOUN IF (1C ADP OR (ADJ) OR (VERB)) ;
+
+# Select Conjunción Subordinada if the following is in COORD
+SELECT CCONJ IF (-1 $$COORD) ;
+
+# Select adverb if the previous is a verbs
+SELECT ADV IF (-1C VERB) ;
+
+# Select noun if the previous is a DET
+SELECT NOUN IF (-1C DET) ;
+
+# Remove Aux if the next is PUNCT
+REMOVE AUX IF (1C PUNCT) ;
