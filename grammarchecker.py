@@ -11,7 +11,6 @@ condicional = open("lists/conjugaciones/condicional.txt", "r")
 ser_estar = open("lists/conjugaciones/ser_estar.txt", "r")
 
 
-
 # KNOWN ISSUES:
 # Sometimes, when the parser outputs more than one possible tag for a single token,
 # it can print the results for every tag.

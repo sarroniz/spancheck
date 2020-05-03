@@ -6,6 +6,8 @@ LAST_NAMES = open('lists/apellidos-es.txt', 'r')
 word_list = []
 dictionary = set()
 
+# KNOWN ISSUES:
+# Sometimes, plurals are not considered to be spelled correctly. 
 
 def read_dictionary_file():
     global dictionary
