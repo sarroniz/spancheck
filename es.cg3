@@ -75,7 +75,7 @@ SELECT NOUN IF (1C ADP OR (ADJ) OR (VERB)) ;
 # Select Conjunción Subordinada if the following is in COORD
 SELECT CCONJ IF (-1 $$COORD) ;
 
-# Select adverb if the previous is a verbs
+# Select adverb if the previous is a verb
 SELECT ADV IF (-1C VERB) ;
 
 # Select noun if the previous is a DET

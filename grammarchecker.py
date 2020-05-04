@@ -4,7 +4,7 @@ import re
 PUNCT = [".", ",", "¿", "?", "¡", "!"]
 alltags = ["ADJ", "ADP", "ADV", "AUX", "CCONJ", "DET", "INTJ", "NOUN", "NUM", "PART", "PRON", "PROPN", "PUNCT", "SCONJ", "SYM", "VERB", "X"]
 presente = open("lists/conjugaciones/presente_ind.txt", "r")
-imperfecto = open("lists/conjugaciones/imperfecto_ind.txt", "r")
+imperfecto_ind = open("lists/conjugaciones/imperfecto_ind.txt", "r")
 preterito = open("lists/conjugaciones/preterito.txt", "r")
 futuro = open("lists/conjugaciones/futuro.txt", "r")
 condicional = open("lists/conjugaciones/condicional.txt", "r")
@@ -99,7 +99,7 @@ with open('outputmorpho.txt', 'r') as f:
                             print("------------------------")
                         else:
                             if i[-3:-1] == "ar":
-                                print("\t",i[1:-3] + "aba\n" + "\t",i[1:-3] + "abas\n" + "\t",i[1:-3] + "aba\n" + "\t",i[1:-3] + "ábamos\n" + "\t",i[1:-3] + "ábais\n" + "\t",i[1:-3] + "aban\n")
+                                print("\t",i[1:-3] + "aba\n" + "\t",i[1:-3] + "abas\n" + "\t",i[1:-3] + "aba\n" + "\t",i[1:-3] + "ábamos\n" + "\t",i[1:-3] + "abais\n" + "\t",i[1:-3] + "aban\n")
                                 print("------------------------")
                             elif i[-3:-1] == "er" or "ir":
                                 print("\t",i[1:-3] + "ía\n" + "\t",i[1:-3] + "ías\n" + "\t",i[1:-3] + "ía\n" + "\t",i[1:-3] + "íamos\n" + "\t",i[1:-3] + "íais\n" + "\t",i[1:-3] + "ían\n")

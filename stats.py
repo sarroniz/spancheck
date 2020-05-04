@@ -15,6 +15,8 @@ word_list = []
 glossary = ['casa', 'arbol']
 glossary_list = []
 
+# KNOWN ISSUES:
+# Sometimes, it does not read some tags properly, and so the count does not match
 
 with open('outputmorpho.txt', 'r') as f:
     for line in f:
@@ -64,9 +66,7 @@ with open('outputmorpho.txt', 'r') as f:
                 adv_list.append("<ADV>")
                 next(f)
 
-            else:
-                if not re.findall('PUNCT', line):
-                    next(f)
+
 
     print("---------------------------------------------------------------")
     print("Total de palabras en el texto: ", len(word_list))

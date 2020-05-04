@@ -7,7 +7,10 @@ word_list = []
 dictionary = set()
 
 # KNOWN ISSUES:
-# Sometimes, plurals are not considered to be spelled correctly. 
+# There seems to be issues with gender and number, since they are not always included in the vocabulary list.
+# There are issues with numbers and symbols.
+# Sometimes, plurals are not considered to be spelled correctly.
+# In the future, a different and more sophisticated way to check the spelling will be implemented. 
 
 def read_dictionary_file():
     global dictionary
